@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="world.json"
+        app:lottie_loop="true" />
+
+    <TextView
+        android:id="@+id/newCasesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+
+        android:layout_marginTop="30dp"
+        android:text="@string/new_cases"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView" />
+
+    <TextView
+        android:id="@+id/newCases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="@+id/newCasesLabel"
+        app:layout_constraintStart_toEndOf="@+id/newCasesLabel"
+        app:layout_constraintTop_toTopOf="@+id/newCasesLabel" />
+
+    <TextView
+        android:id="@+id/casesTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/newCases"
+        app:layout_constraintStart_toEndOf="@+id/newCases"
+        app:layout_constraintTop_toTopOf="@+id/newCases" />
+
+    <TextView
+        android:id="@+id/newDeathsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+
+        android:layout_marginTop="20dp"
+        android:text="@string/new_deaths"
+        android:textColor="@color/red"
+        android:textSize="24sp"
+        android:textStyle="bold"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newCasesLabel" />
+
+    <TextView
+        android:id="@+id/newDeaths"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="@+id/newDeathsLabel"
+        app:layout_constraintStart_toEndOf="@+id/newDeathsLabel"
+        app:layout_constraintTop_toTopOf="@+id/newDeathsLabel" />
+
+    <TextView
+        android:id="@+id/deathsTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="20dp"
+        android:textColor="@color/redLight"
+
+        app:layout_constraintBottom_toBottomOf="@+id/newDeaths"
+        app:layout_constraintStart_toEndOf="@+id/newDeaths"
+        app:layout_constraintTop_toTopOf="@+id/newDeaths" />
+
+    <TextView
+        android:id="@+id/newRecoveredLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+
+        android:layout_marginTop="20dp"
+        android:text="@string/new_recovered"
+        android:textColor="@color/green"
+        android:textSize="24sp"
+        android:textStyle="bold"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newDeathsLabel" />
+
+    <TextView
+        android:id="@+id/newRecovered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="@+id/newRecoveredLabel"
+        app:layout_constraintStart_toEndOf="@+id/newRecoveredLabel"
+        app:layout_constraintTop_toTopOf="@+id/newRecoveredLabel" />
+
+    <TextView
+        android:id="@+id/recoveredTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="20dp"
+        android:textColor="@color/greenLight"
+
+        app:layout_constraintBottom_toBottomOf="@+id/newRecovered"
+        app:layout_constraintStart_toEndOf="@+id/newRecovered"
+        app:layout_constraintTop_toTopOf="@+id/newRecovered" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

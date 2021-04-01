@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/my_routes_menu">
+        <item
+            android:id="@+id/menuSortByNewCases"
+            android:title="@string/sort_by_new_cases_most_first" />
+
+        <item
+            android:id="@+id/menuSortByNewCasesDes"
+            android:title="@string/sort_by_new_cases_less_first"  />
+
+        <item
+            android:id="@+id/menuSortByNewDeaths"
+            android:title="@string/sort_by_new_deaths_most_first"  />
+
+        <item
+            android:id="@+id/menuSortByNewDeathsDes"
+            android:title="@string/sort_by_new_deaths_less_first"  />
+
+        <item
+            android:id="@+id/menuSortByNewRecovered"
+            android:title="@string/sort_by_new_recovered_most_first"  />
+
+        <item
+            android:id="@+id/menuSortByNewRecoveredDes"
+            android:title="@string/sort_by_new_recovered_less_first"  />
+    </group>
+</menu>

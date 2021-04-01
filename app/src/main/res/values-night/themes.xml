@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryDarkMode</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkDarkMode</item>
+        <item name="colorAccent">@color/colorPrimaryLightDarkMode</item>
+
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryDarkMode</item>
+
+        <item name="android:windowBackground">@color/colorPrimaryBgDarkMode</item>
+        <item name="android:colorBackground">@color/colorPrimaryBgDarkMode</item>
+    </style>
+</resources>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CaronaVirusStats</string>
+    <string name="global">Global</string>
+    <string name="countries">Countries</string>
+    <string name="new_cases">New Cases:</string>
+    <string name="new_deaths">New Deaths:</string>
+    <string name="new_recovered">New Recovered:</string>
+    <string name="search_country">Search Country</string>
+    <string name="sort_by_new_cases_most_first">Sort by New cases (Most First)</string>
+    <string name="sort_by_new_cases_less_first">Sort by New cases (Less First)</string>
+    <string name="sort_by_new_deaths_less_first">Sort by New deaths (Less First)</string>
+    <string name="sort_by_new_deaths_most_first">Sort by New deaths (Most First)</string>
+    <string name="sort_by_new_recovered_less_first">Sort by New recovered (Less First)</string>
+    <string name="sort_by_new_recovered_most_first">Sort by New recovered (Most First)</string>
+    <string name="image">Image</string>
+</resources>
