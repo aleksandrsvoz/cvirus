@@ -5,4 +5,6 @@
 
     <dimen name="margin_country_hor">20dp</dimen>
     <dimen name="corner_white_window">20dp</dimen>
+    <dimen name="size_border_global_today_data">3dp</dimen>
+    <dimen name="corner_border_global_today_data">20dp</dimen>
 </resources>

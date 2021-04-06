@@ -4,138 +4,231 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--    Cases-->
+    <com.hookedonplay.decoviewlib.DecoView
+        android:id="@+id/dynamicArcView"
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        app:dv_arc_gravity_horizontal="Center"
+        app:dv_arc_gravity_vertical="Bottom"
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimationView"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_fileName="world.json"
-        app:lottie_loop="true" />
+        app:layout_constraintVertical_bias="0.2" />
+
+    <View
+        android:id="@+id/vGlobalDataCasesCircle"
+        style="@style/GlobalDataCircle"
+        android:background="@drawable/shape_circle_orange"
+
+        app:layout_constraintBottom_toBottomOf="@+id/tvGlobalDataCasesLabel"
+        app:layout_constraintEnd_toStartOf="@+id/tvGlobalDataCasesLabel"
+        app:layout_constraintStart_toEndOf="@+id/tvGlobalDataCasesLabel"
+        app:layout_constraintTop_toTopOf="@+id/tvGlobalDataCasesLabel" />
 
     <TextView
-        android:id="@+id/newCasesLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:id="@+id/tvGlobalDataCasesLabel"
+        style="@style/TextViewLabel"
+        android:text="@string/cases"
+        android:textSize="25sp"
 
+        app:layout_constraintBottom_toBottomOf="@+id/dynamicArcView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vGlobalDataCasesCircle"
+        app:layout_constraintTop_toTopOf="@+id/dynamicArcView"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <TextView
+        android:id="@+id/tvGlobalDataCases"
+        style="@style/TextViewNumber"
+
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+
+        app:autoSizeMaxTextSize="37sp"
+        app:autoSizeMinTextSize="26sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvGlobalDataCasesLabel" />
+    <!--    Cases end-->
+
+    <!--    Recovered-->
+    <View
+        android:id="@+id/vGlobalDataRecoveredCircle"
+        style="@style/GlobalDataCircle"
+        android:background="@drawable/shape_circle_green"
+
+        app:layout_constraintBottom_toBottomOf="@+id/tvGlobalDataRecoveredLabel"
+        app:layout_constraintEnd_toStartOf="@+id/tvGlobalDataRecoveredLabel"
+        app:layout_constraintTop_toTopOf="@+id/tvGlobalDataRecoveredLabel" />
+
+    <TextView
+        android:id="@+id/tvGlobalDataRecoveredLabel"
+        style="@style/TextViewLabel"
+        android:layout_marginTop="5dp"
+        android:text="@string/recovered"
+        android:textSize="17sp"
+
+        app:layout_constraintEnd_toEndOf="@+id/tvGlobalDataRecovered"
+        app:layout_constraintHorizontal_bias="0.57"
+        app:layout_constraintStart_toStartOf="@+id/tvGlobalDataRecovered"
+        app:layout_constraintTop_toBottomOf="@+id/tvGlobalDataCases" />
+
+    <TextView
+        android:id="@+id/tvGlobalDataRecovered"
+        style="@style/TextViewNumber"
+
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="20sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+
+        app:layout_constraintEnd_toEndOf="@+id/tvGlobalDataCases"
+        app:layout_constraintStart_toStartOf="@+id/tvGlobalDataCases"
+        app:layout_constraintTop_toBottomOf="@+id/tvGlobalDataRecoveredLabel" />
+    <!--    Recovered end-->
+
+    <!--    Deaths-->
+    <View
+        android:id="@+id/vGlobalDataDeathsCircle"
+        style="@style/GlobalDataCircle"
+        android:background="@drawable/shape_circle_red"
+
+        app:layout_constraintBottom_toBottomOf="@+id/tvGlobalDataDeathsLabel"
+        app:layout_constraintEnd_toStartOf="@+id/tvGlobalDataDeathsLabel"
+        app:layout_constraintTop_toTopOf="@+id/tvGlobalDataDeathsLabel" />
+
+    <TextView
+        android:id="@+id/tvGlobalDataDeathsLabel"
+        style="@style/TextViewLabel"
+        android:layout_marginTop="10dp"
+        android:text="@string/deaths"
+        android:textSize="14sp"
+
+        app:layout_constraintEnd_toEndOf="@+id/tvGlobalDataDeaths"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toEndOf="@+id/vGlobalDataRecoveredCircle"
+        app:layout_constraintStart_toStartOf="@+id/tvGlobalDataDeaths"
+        app:layout_constraintTop_toBottomOf="@+id/tvGlobalDataRecovered" />
+
+    <TextView
+        android:id="@+id/tvGlobalDataDeaths"
+        style="@style/TextViewNumber"
+
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+
+        app:autoSizeMaxTextSize="17sp"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+
+        app:layout_constraintEnd_toEndOf="@+id/tvGlobalDataRecovered"
+        app:layout_constraintStart_toStartOf="@+id/tvGlobalDataRecovered"
+        app:layout_constraintTop_toBottomOf="@+id/tvGlobalDataDeathsLabel" />
+    <!--    Deaths end-->
+
+    <!--    Today Recovered-->
+    <LinearLayout
+        android:id="@+id/llGlobalRecoveredToday"
+        style="@style/GlobalDataTodayBox"
+
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_global_today_data_block_green"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/llGlobalDiedToday"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dynamicArcView"
+        app:layout_constraintVertical_bias="0.19">
+
+        <TextView
+            android:id="@+id/tvGlobalRecoveredTodayLabel"
+            style="@style/TextViewLabel.GlobalDataTodayCardsLabel"
+            android:text="@string/recovered_today" />
+
+        <TextView
+            android:id="@+id/tvGlobalRecoveredToday"
+            style="@style/TextViewNumber.GlobalDataTodayCardsContent"
+
+            app:autoSizeMaxTextSize="30sp"
+            app:autoSizeMinTextSize="20sp"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform" />
+    </LinearLayout>
+
+    <!--    Today Died-->
+    <LinearLayout
+        android:id="@+id/llGlobalDiedToday"
+        style="@style/GlobalDataTodayBox"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/bg_global_today_data_block_red"
+
+        app:layout_constraintBottom_toBottomOf="@+id/llGlobalRecoveredToday"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/llGlobalRecoveredToday"
+        app:layout_constraintTop_toTopOf="@+id/llGlobalRecoveredToday">
+
+        <TextView
+            android:id="@+id/tvGlobalDiedTodayLabel"
+            style="@style/TextViewLabel.GlobalDataTodayCardsLabel"
+            android:text="@string/died_today" />
+
+        <TextView
+            android:id="@+id/tvGlobalDiedToday"
+            style="@style/TextViewNumber.GlobalDataTodayCardsContent"
+
+            app:autoSizeMaxTextSize="30sp"
+            app:autoSizeMinTextSize="20sp"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform" />
+    </LinearLayout>
+
+    <!--    Today Cases-->
+    <LinearLayout
+        android:id="@+id/llGlobalTodayCases"
+        style="@style/GlobalDataTodayBox"
+
+        android:layout_marginStart="60dp"
         android:layout_marginTop="30dp"
-        android:text="@string/new_cases"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/bg_global_today_data_block_orange"
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView" />
+        app:layout_constraintEnd_toEndOf="@+id/llGlobalDiedToday"
+        app:layout_constraintStart_toStartOf="@+id/llGlobalRecoveredToday"
+        app:layout_constraintTop_toBottomOf="@+id/llGlobalRecoveredToday">
 
-    <TextView
-        android:id="@+id/newCases"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        <TextView
+            android:id="@+id/tvGlobalTodayCasesLabel"
+            style="@style/TextViewLabel.GlobalDataTodayCardsLabel"
+            
+            android:layout_marginTop="18dp"
+            android:text="@string/new_cases"
+            android:textSize="22sp" />
 
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        <TextView
+            android:id="@+id/tvGlobalTodayCases"
+            style="@style/TextViewNumber.GlobalDataTodayCardsContent"
 
-        app:layout_constraintBottom_toBottomOf="@+id/newCasesLabel"
-        app:layout_constraintStart_toEndOf="@+id/newCasesLabel"
-        app:layout_constraintTop_toTopOf="@+id/newCasesLabel" />
-
-    <TextView
-        android:id="@+id/casesTotal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-
-        app:layout_constraintBottom_toBottomOf="@+id/newCases"
-        app:layout_constraintStart_toEndOf="@+id/newCases"
-        app:layout_constraintTop_toTopOf="@+id/newCases" />
-
-    <TextView
-        android:id="@+id/newDeathsLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-
-        android:layout_marginTop="20dp"
-        android:text="@string/new_deaths"
-        android:textColor="@color/red"
-        android:textSize="24sp"
-        android:textStyle="bold"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newCasesLabel" />
-
-    <TextView
-        android:id="@+id/newDeaths"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-
-        app:layout_constraintBottom_toBottomOf="@+id/newDeathsLabel"
-        app:layout_constraintStart_toEndOf="@+id/newDeathsLabel"
-        app:layout_constraintTop_toTopOf="@+id/newDeathsLabel" />
-
-    <TextView
-        android:id="@+id/deathsTotal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginStart="20dp"
-        android:textColor="@color/redLight"
-
-        app:layout_constraintBottom_toBottomOf="@+id/newDeaths"
-        app:layout_constraintStart_toEndOf="@+id/newDeaths"
-        app:layout_constraintTop_toTopOf="@+id/newDeaths" />
-
-    <TextView
-        android:id="@+id/newRecoveredLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-
-        android:layout_marginTop="20dp"
-        android:text="@string/new_recovered"
-        android:textColor="@color/green"
-        android:textSize="24sp"
-        android:textStyle="bold"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newDeathsLabel" />
-
-    <TextView
-        android:id="@+id/newRecovered"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-
-        app:layout_constraintBottom_toBottomOf="@+id/newRecoveredLabel"
-        app:layout_constraintStart_toEndOf="@+id/newRecoveredLabel"
-        app:layout_constraintTop_toTopOf="@+id/newRecoveredLabel" />
-
-    <TextView
-        android:id="@+id/recoveredTotal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginStart="20dp"
-        android:textColor="@color/greenLight"
-
-        app:layout_constraintBottom_toBottomOf="@+id/newRecovered"
-        app:layout_constraintStart_toEndOf="@+id/newRecovered"
-        app:layout_constraintTop_toTopOf="@+id/newRecovered" />
+            app:autoSizeMaxTextSize="30sp"
+            app:autoSizeMinTextSize="20sp"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
