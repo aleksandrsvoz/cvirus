@@ -37,10 +37,11 @@
     </style>
 
     <style name="TextViewLabel">
+        <item name="android:lines">1</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:textColor">@color/label_gray</item>
+        <item name="android:textColor">@color/text_label_gray</item>
         <item name="android:fontFamily">@font/roboto_condensed_bold</item>
     </style>
 
@@ -51,20 +52,7 @@
         <item name="android:lines">1</item>
         <item name="android:text">0</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:textColor">@color/number_black</item>
-    </style>
-
-    <style name="GlobalDataTodayBox">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">110dp</item>
-        <item name="android:orientation">vertical</item>
-        <item name="android:translationZ">3dp</item>
-    </style>
-
-    <style name="GlobalDataCircle">
-        <item name="android:layout_width">10dp</item>
-        <item name="android:layout_height">10dp</item>
-        <item name="android:layout_marginEnd">4dp</item>
+        <item name="android:textColor">@color/text_black</item>
     </style>
 
     <style name="TextViewLabel.GlobalDataTodayCardsLabel">
@@ -78,4 +66,28 @@
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:textSize">30sp</item>
     </style>
+
+    <style name="GlobalDataTodayBox">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">110dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:translationZ">3dp</item>
+    </style>
+
+    <style name="GlobalTodayBoxLoadingLottie">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:layout_marginEnd">14dp</item>
+        <item name="android:layout_marginStart">14dp</item>
+        <item name="android:layout_marginBottom">14dp</item>
+    </style>
+
+    <style name="GlobalDataCircle">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">10dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+    </style>
+
+
 </resources>

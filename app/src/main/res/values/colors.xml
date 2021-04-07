@@ -3,7 +3,7 @@
     <color name="colorPrimary">#f57c00</color>
     <color name="colorPrimaryLight">#ffad42</color>
     <color name="colorPrimaryDark">#bb4d00</color>
-    <color name="colorPrimaryBg">#FAFAFC</color>
+    <color name="colorPrimaryBg">#FAFAFA</color>
 
     <color name="colorSecondary">#1976d2</color>
     <color name="colorSecondaryLight">#63a4ff</color>
@@ -26,16 +26,17 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="redLight">#C25A5A</color>
-
     <color name="greenLight">#91E58F</color>
     <color name="gray">#EEEEEE</color>
-    <color name="chart_gray_bg">#D0D0D0</color>
     <color name="dark_gray">#555555</color>
-    <color name="label_gray">#6F6F6F</color>
-    <color name="number_black">#2A3841</color>
-    <color name="global_data_pie_bg">#ECECEE</color>
 
-    <color name="orange">#FFBF00</color>
-    <color name="green">#4ED864</color>
-    <color name="red">#FF3B31</color>
+    <color name="text_label_gray">#6F6F6F</color>
+    <color name="text_black">#2A3841</color>
+
+    <color name="bg_chart_gray">#D0D0D0</color>
+    <color name="bg_global_data_pie">#ECECEE</color>
+
+    <color name="color_orange_cases">#FFBF00</color>
+    <color name="color_green_recovered">#4ED864</color>
+    <color name="color_red_deaths">#FF3B31</color>
 </resources>

@@ -37,7 +37,7 @@ class AppLineChart : LineChart {
             confirmedDataValues.add(Entry(i.toFloat(), countryData[i].confirmed.toFloat()))
         }
         val confirmedDataSet = LineDataSet(confirmedDataValues, "confirmedDataSet")
-        confirmedDataSet.setupFormat(R.color.chart_gray_bg, context)
+        confirmedDataSet.setupFormat(R.color.bg_chart_gray, context)
         confirmedDataSet.color = ContextCompat.getColor(context, R.color.dark_gray)
         confirmedDataSet.fillFormatter = IFillFormatter { _, _ -> this.axisLeft.axisMinimum }
 
@@ -55,7 +55,7 @@ class AppLineChart : LineChart {
             recoveredDataValues.add(Entry(i.toFloat(), countryData[i].recovered.toFloat()))
         }
         val recoveredDataSet = LineDataSet(recoveredDataValues, "recoveredDataSet")
-        recoveredDataSet.setupFormat(R.color.green, context)
+        recoveredDataSet.setupFormat(R.color.color_green_recovered, context)
         recoveredDataSet.fillFormatter = IFillFormatter { _, _ -> this.axisLeft.axisMinimum }
 
         val resultData = LineData(confirmedDataSet,deathsDataSet,recoveredDataSet)

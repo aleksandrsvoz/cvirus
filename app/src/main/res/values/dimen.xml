@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="item_user_corners_radius">8dp</dimen>
+    <dimen name="item_country_corners_radius">18dp</dimen>
     <dimen name="corner_search">8dp</dimen>
 
     <dimen name="margin_country_hor">20dp</dimen>

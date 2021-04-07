@@ -7,17 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.alexvoz.cvirus.R
 import com.alexvoz.cvirus.data.covid_data.network.Global
-import com.alexvoz.cvirus.util.SharedViewModel
+import com.alexvoz.cvirus.presentation.main.SharedViewModel
 import com.alexvoz.cvirus.util.getNumberWithSpaces
 import com.hookedonplay.decoviewlib.charts.DecoDrawEffect
 import com.hookedonplay.decoviewlib.charts.SeriesItem
 import com.hookedonplay.decoviewlib.charts.SeriesItem.SeriesItemListener
 import com.hookedonplay.decoviewlib.events.DecoEvent
-import kotlinx.android.synthetic.main.fragment_country_data.*
 import kotlinx.android.synthetic.main.fragment_global_data.*
 import kotlinx.coroutines.InternalCoroutinesApi
 
@@ -27,6 +27,10 @@ class CovidGlobalDataFragment : Fragment() {
 
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
+    private var circleTotalDataBgIndex = 0
+    private var casesCircleDataIndex = 0
+    private var recoveredCircleDataIndex = 0
+    private var deathsCircleDataIndex = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,244 +43,145 @@ class CovidGlobalDataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initListeners()
+    }
+
+    private fun initListeners() {
         sharedViewModel.covidData.observe(viewLifecycleOwner, {
             it?.let { covidData -> setData(covidData.global) }
         })
-
-//        val seriesItem1 = SeriesItem.Builder(requireContext().getColor(R.color.colorPrimary))
-//            .setRange(0f, 100f, 0f)
-//            .setInitialVisibility(false)
-//            .setLineWidth(70f)
-//            .setSeriesLabel(SeriesLabel.Builder("Percent %.0f%%").build())
-//            .setInterpolator(OvershootInterpolator())
-//            .setShowPointWhenEmpty(true)
-//            .setCapRounded(true)
-//            .setInset(PointF(32f, 32f))
-//            .setDrawAsPoint(false)
-//            .setInitialVisibility(true)
-//            .setSpinClockwise(true)
-//            .setSpinDuration(6000)
-//            .setChartStyle(SeriesItem.ChartStyle.STYLE_DONUT)
-//            .build()
-//
-//        val a = dynamicArcView.addSeries(seriesItem1)
-//
-//        dynamicArcView.addEvent(DecoEvent.Builder(70f).setIndex(a).setDelay(1000).build())
-
-
     }
-
 
     private fun setData(global: Global) {
         tvGlobalTodayCases.text = global.newConfirmed.getNumberWithSpaces()
         tvGlobalRecoveredToday.text = global.newRecovered.getNumberWithSpaces()
         tvGlobalDiedToday.text = global.newDeaths.getNumberWithSpaces()
 
-        createTracks((global.totalConfirmed * 1.40).toFloat())
-        setupEvents(global.totalConfirmed, global.totalDeaths, global.totalRecovered)
+        initCircleTotalData((global.totalConfirmed * 1.40).toFloat())
+
+        startCircleTotalDataAnimation(
+            global.totalConfirmed,
+            global.totalDeaths,
+            global.totalRecovered
+        )
+
+        mlGlobalData.transitionToEnd()
     }
 
 
-    private var mBackIndex = 0
-    private var mSeries1Index = 0
-    private var mSeries2Index = 0
-    private var mSeries3Index = 0
-    private var mUpdateListeners = true
+    private fun initCircleTotalData(maxValue: Float) {
 
-    @SuppressLint("NewApi")
-    fun createTracks(max: Float) {
+        dvGlobalDataCircleTotalData.deleteAll()
+        dvGlobalDataCircleTotalData.configureAngles(360, 180)
 
-
-        val view = view
-        if (dynamicArcView == null || view == null) {
-            return
-        }
-        dynamicArcView.deleteAll()
-        dynamicArcView.configureAngles(360, 180)
+        val circleTotalDataBg =
+            SeriesItem.Builder(ContextCompat.getColor(requireContext(), R.color.bg_global_data_pie))
+                .setRange(0f, maxValue, maxValue)
+                .setInitialVisibility(false)
+                .setLineWidth(150f)
+                .setChartStyle(SeriesItem.ChartStyle.STYLE_DONUT)
+                .build()
+        circleTotalDataBgIndex = dvGlobalDataCircleTotalData.addSeries(circleTotalDataBg)
 
 
-        val arcBackTrack = SeriesItem.Builder(requireContext().getColor(R.color.global_data_pie_bg))
-            .setRange(0f, max, max)
-            .setInitialVisibility(false)
-            .setLineWidth(150f)
-            .setChartStyle(SeriesItem.ChartStyle.STYLE_DONUT)
-            .build()
-
-        mBackIndex = dynamicArcView.addSeries(arcBackTrack)
-
-
-        val seriesItem1 = SeriesItem.Builder(requireContext().getColor(R.color.orange))
-            .setRange(0f, max, 0f)
-            .setInitialVisibility(false)
-            .setLineWidth(70f)
-            .setInset(PointF(-40f, -40f))
-            .setSpinClockwise(true)
-            .setCapRounded(true)
-            .setChartStyle(SeriesItem.ChartStyle.STYLE_DONUT)
-            .build()
-
-        mSeries1Index = dynamicArcView.addSeries(seriesItem1)
-
-        val seriesItem2 = SeriesItem.Builder(requireContext().getColor(R.color.green))
-            .setRange(0f, max, 0f)
-            .setInitialVisibility(false)
-            .setCapRounded(true)
-            .setLineWidth(40f)
-            .setInset(PointF(20f, 20f))
-            .setCapRounded(true)
-            .build()
-
-        mSeries2Index = dynamicArcView.addSeries(seriesItem2)
-
-        val seriesItem3 = SeriesItem.Builder(requireContext().getColor(R.color.red))
-            .setRange(0f, max, 0f)
-            .setInitialVisibility(false)
-            .setCapRounded(true)
-            .setLineWidth(30f)
-            .setInset(PointF(60f, 60f))
-            .setCapRounded(true)
-            .build()
-
-        mSeries3Index = dynamicArcView.addSeries(seriesItem3)
+        val casesCircleData =
+            SeriesItem.Builder(ContextCompat.getColor(requireContext(), R.color.color_orange_cases))
+                .setRange(0f, maxValue, 0f)
+                .setInitialVisibility(false)
+                .setLineWidth(70f)
+                .setInset(PointF(-40f, -40f))
+                .setSpinClockwise(true)
+                .setCapRounded(true)
+                .setChartStyle(SeriesItem.ChartStyle.STYLE_DONUT)
+                .build()
+        casesCircleDataIndex = dvGlobalDataCircleTotalData.addSeries(casesCircleData)
 
 
+        val recoveredCircleData =
+            SeriesItem.Builder(
+                ContextCompat.getColor(requireContext(), R.color.color_green_recovered)
+            )
+                .setRange(0f, maxValue, 0f)
+                .setInitialVisibility(false)
+                .setCapRounded(true)
+                .setLineWidth(40f)
+                .setInset(PointF(20f, 20f))
+                .setCapRounded(true)
+                .build()
+        recoveredCircleDataIndex = dvGlobalDataCircleTotalData.addSeries(recoveredCircleData)
 
-        addProgressListener(seriesItem1, tvGlobalDataCases)
-        addProgressListener(seriesItem2, tvGlobalDataRecovered)
-        addProgressListener(seriesItem3, tvGlobalDataDeaths)
+
+        val deathsCircleData =
+            SeriesItem.Builder(ContextCompat.getColor(requireContext(), R.color.color_red_deaths))
+                .setRange(0f, maxValue, 0f)
+                .setInitialVisibility(false)
+                .setCapRounded(true)
+                .setLineWidth(30f)
+                .setInset(PointF(60f, 60f))
+                .setCapRounded(true)
+                .build()
+        deathsCircleDataIndex = dvGlobalDataCircleTotalData.addSeries(deathsCircleData)
 
 
+        addProgressListener(casesCircleData, tvGlobalDataCases)
+        addProgressListener(recoveredCircleData, tvGlobalDataRecovered)
+        addProgressListener(deathsCircleData, tvGlobalDataDeaths)
     }
 
-    fun setupEvents(cases: Int, deaths: Int, recovered: Int) {
+    private fun startCircleTotalDataAnimation(cases: Int, deaths: Int, recovered: Int) {
 
-        val view = view
-        if (dynamicArcView == null || dynamicArcView.isEmpty || view == null) {
-            return
-        }
-
-        mUpdateListeners = true
-
-
-        val linkedViews = arrayOf(tvGlobalDataCases, tvGlobalDataRecovered, tvGlobalDataDeaths)
+        val textViewsForProgressListener =
+            arrayOf(tvGlobalDataCases, tvGlobalDataRecovered, tvGlobalDataDeaths)
         val fadeDuration = 2000L
 
-
-        dynamicArcView.addEvent(
+        dvGlobalDataCircleTotalData.addEvent(
             DecoEvent.Builder(DecoEvent.EventType.EVENT_SHOW, true)
-                .setIndex(mBackIndex)
+                .setIndex(circleTotalDataBgIndex)
                 .setDuration(fadeDuration)
                 .build()
         )
 
-        dynamicArcView.addEvent(
+        dvGlobalDataCircleTotalData.addEvent(
             DecoEvent.Builder(DecoDrawEffect.EffectType.EFFECT_SPIRAL_OUT)
-                .setIndex(mSeries1Index)
+                .setIndex(casesCircleDataIndex)
                 .setFadeDuration(fadeDuration)
                 .setDuration(1500)
-                .setLinkedViews(linkedViews)
+                .setLinkedViews(textViewsForProgressListener)
                 .setDelay(1000)
                 .build()
         )
 
-        dynamicArcView.addEvent(
+        dvGlobalDataCircleTotalData.addEvent(
             DecoEvent.Builder(DecoDrawEffect.EffectType.EFFECT_SPIRAL_OUT)
-                .setIndex(mSeries2Index)
+                .setIndex(recoveredCircleDataIndex)
                 .setFadeDuration(fadeDuration)
                 .setDuration(1500)
-                .setLinkedViews(linkedViews)
+                .setLinkedViews(textViewsForProgressListener)
                 .setDelay(1100)
                 .build()
         )
 
-        dynamicArcView.addEvent(
+        dvGlobalDataCircleTotalData.addEvent(
             DecoEvent.Builder(DecoDrawEffect.EffectType.EFFECT_SPIRAL_OUT)
-                .setIndex(mSeries3Index)
+                .setIndex(deathsCircleDataIndex)
                 .setFadeDuration(fadeDuration)
-                .setLinkedViews(linkedViews)
+                .setLinkedViews(textViewsForProgressListener)
                 .setDuration(1500)
                 .setDelay(1200)
                 .build()
         )
 
-
-//        dynamicArcView.addEvent(
-//            DecoEvent.Builder(DecoDrawEffect.EffectType.EFFECT_SPIRAL_OUT)
-//                .setIndex(mSeries2Index)
-//                .setLinkedViews(linkedViews)
-//                .setDuration(1500)
-//                .setDelay(1100)
-//                .build()
-//        )
-
-
-//        dynamicArcView.addEvent(
-//            DecoEvent.Builder(10f).setIndex(mSeries2Index).setDelay(3900).build()
-//        )
-//        dynamicArcView.addEvent(
-//            DecoEvent.Builder(22f).setIndex(mSeries2Index).setDelay(7000).build()
-//        )
-//
-//        dynamicArcView.addEvent(
-//            DecoEvent.Builder(25f).setIndex(mSeries1Index).setDelay(3300).build()
-//        )
-//        dynamicArcView.addEvent(
-//            DecoEvent.Builder(50f).setIndex(mSeries1Index).setDuration(1500).setDelay(9000).build()
-//        )
-
-
-        dynamicArcView.addEvent(
-            DecoEvent.Builder(cases.toFloat()).setIndex(mSeries1Index).setDelay(3000).build()
+        dvGlobalDataCircleTotalData.addEvent(
+            DecoEvent.Builder(cases.toFloat()).setIndex(casesCircleDataIndex).setDelay(3000).build()
         )
-        dynamicArcView.addEvent(
-            DecoEvent.Builder(recovered.toFloat()).setIndex(mSeries2Index).setDelay(6000).build()
+        dvGlobalDataCircleTotalData.addEvent(
+            DecoEvent.Builder(recovered.toFloat()).setIndex(recoveredCircleDataIndex).setDelay(6000)
+                .build()
         )
-        dynamicArcView.addEvent(
-            DecoEvent.Builder(deaths.toFloat()).setIndex(mSeries3Index).setDelay(9000).build()
+        dvGlobalDataCircleTotalData.addEvent(
+            DecoEvent.Builder(deaths.toFloat()).setIndex(deathsCircleDataIndex).setDelay(9000)
+                .build()
         )
-
-//        dynamicArcView.addEvent(
-//            DecoEvent.Builder(0f).setIndex(mSeries1Index).setDuration(500).setDelay(10500)
-//                .setListener(object : ExecuteEventListener {
-//                    override fun onEventStart(event: DecoEvent) {
-//                        mUpdateListeners = false
-//                    }
-//
-//                    override fun onEventEnd(event: DecoEvent) {}
-//                })
-//                .setInterpolator(AccelerateInterpolator()).build()
-//        )
-
-
-    }
-
-    fun addProgressRemainingListener(
-        seriesItem: SeriesItem,
-        view: TextView,
-        format: String,
-        maxValue: Float
-    ) {
-        require(format.length > 0) { "String formatter can not be empty" }
-        seriesItem.addArcSeriesItemListener(object : SeriesItemListener {
-            override fun onSeriesItemAnimationProgress(
-                percentComplete: Float,
-                currentPosition: Float
-            ) {
-                if (mUpdateListeners) {
-                    if (format.contains("%%")) {
-                        // We found a percentage so we insert a percentage
-                        view.text = String.format(
-                            format,
-                            (1.0f - currentPosition / seriesItem.maxValue) * 100f
-                        )
-                    } else {
-                        view.text = String.format(format, maxValue - currentPosition)
-                    }
-                }
-            }
-
-            override fun onSeriesItemDisplayProgress(percentComplete: Float) {}
-        })
     }
 
     private fun addProgressListener(
@@ -294,6 +199,4 @@ class CovidGlobalDataFragment : Fragment() {
             override fun onSeriesItemDisplayProgress(percentComplete: Float) {}
         })
     }
-
-
 }

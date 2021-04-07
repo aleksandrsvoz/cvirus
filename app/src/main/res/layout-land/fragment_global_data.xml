@@ -6,31 +6,18 @@
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_global_data_scene">
 
-    <TextView
-        android:id="@+id/tvGlobalDataTotalLabel"
-        style="@style/TextViewLabel"
-
-        android:text="@string/total_data"
-        android:textColor="@color/text_black"
-        android:textSize="30sp"
-
-        app:layout_constraintBottom_toTopOf="@+id/dvGlobalDataCircleTotalData"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.hookedonplay.decoviewlib.DecoView
         android:id="@+id/dvGlobalDataCircleTotalData"
         android:layout_width="0dp"
-        android:layout_height="350dp"
+        android:layout_height="300dp"
         app:dv_arc_gravity_horizontal="Center"
         app:dv_arc_gravity_vertical="Bottom"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <!--    Cases-->
     <View
@@ -48,31 +35,31 @@
         android:id="@+id/tvGlobalDataCasesLabel"
         style="@style/TextViewLabel"
         android:text="@string/cases"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:visibility="invisible"
 
         app:layout_constraintBottom_toBottomOf="@+id/dvGlobalDataCircleTotalData"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_center"
         app:layout_constraintStart_toEndOf="@id/vGlobalDataCasesCircle"
         app:layout_constraintTop_toTopOf="@+id/dvGlobalDataCircleTotalData"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.23" />
 
     <TextView
         android:id="@+id/tvGlobalDataCases"
         style="@style/TextViewNumber"
 
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="100dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginEnd="110dp"
         android:visibility="invisible"
 
-        app:autoSizeMaxTextSize="37sp"
-        app:autoSizeMinTextSize="26sp"
+        app:autoSizeMaxTextSize="32sp"
+        app:autoSizeMinTextSize="22sp"
         app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
 
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvGlobalDataCasesLabel" />
     <!--    Cases end-->
@@ -91,9 +78,8 @@
     <TextView
         android:id="@+id/tvGlobalDataRecoveredLabel"
         style="@style/TextViewLabel"
-        android:layout_marginTop="5dp"
         android:text="@string/recovered"
-        android:textSize="17sp"
+        android:textSize="14sp"
         android:visibility="invisible"
 
         app:layout_constraintEnd_toEndOf="@+id/tvGlobalDataRecovered"
@@ -111,8 +97,8 @@
         android:layout_marginEnd="20dp"
         android:visibility="invisible"
 
-        app:autoSizeMaxTextSize="24sp"
-        app:autoSizeMinTextSize="20sp"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeMinTextSize="16sp"
         app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
 
@@ -135,9 +121,9 @@
     <TextView
         android:id="@+id/tvGlobalDataDeathsLabel"
         style="@style/TextViewLabel"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="@string/deaths"
-        android:textSize="14sp"
+        android:textSize="13sp"
         android:visibility="invisible"
 
         app:layout_constraintEnd_toEndOf="@+id/tvGlobalDataDeaths"
@@ -156,8 +142,8 @@
         android:layout_marginEnd="20dp"
         android:visibility="invisible"
 
-        app:autoSizeMaxTextSize="17sp"
-        app:autoSizeMinTextSize="14sp"
+        app:autoSizeMaxTextSize="14sp"
+        app:autoSizeMinTextSize="11sp"
         app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform"
 
@@ -177,9 +163,9 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/llGlobalDiedToday"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dvGlobalDataCircleTotalData"
-        app:layout_constraintVertical_bias="0.19">
+        app:layout_constraintStart_toEndOf="@+id/guideline_center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15">
 
         <TextView
             android:id="@+id/tvGlobalRecoveredTodayLabel"
@@ -311,4 +297,10 @@
     </LinearLayout>
     <!--    Today Cases End-->
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 </androidx.constraintlayout.motion.widget.MotionLayout>

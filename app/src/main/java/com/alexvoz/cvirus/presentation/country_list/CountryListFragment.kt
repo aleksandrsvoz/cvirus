@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alexvoz.cvirus.R
 import com.alexvoz.cvirus.presentation.country_data.COUNTRY_NAME
-import com.alexvoz.cvirus.util.SharedViewModel
+import com.alexvoz.cvirus.presentation.main.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_countries_list.*
 import kotlinx.coroutines.*
 

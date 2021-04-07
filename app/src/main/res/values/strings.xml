@@ -18,4 +18,6 @@
     <string name="died_today">Died Today</string>
     <string name="recovered">Recovered</string>
     <string name="deaths">Deaths</string>
+    <string name="total_data">Total Data</string>
+    <string name="country_name">Country Name</string>
 </resources>

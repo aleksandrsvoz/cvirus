@@ -101,7 +101,7 @@
 
         android:layout_marginTop="20dp"
         android:text="@string/new_deaths"
-        android:textColor="@color/red"
+        android:textColor="@color/color_red_deaths"
         android:textSize="24sp"
         android:textStyle="bold"
 
@@ -142,7 +142,7 @@
 
         android:layout_marginTop="20dp"
         android:text="@string/new_recovered"
-        android:textColor="@color/green"
+        android:textColor="@color/color_green_recovered"
         android:textSize="24sp"
         android:textStyle="bold"
 

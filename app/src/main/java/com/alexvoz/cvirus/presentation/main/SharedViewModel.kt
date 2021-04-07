@@ -1,4 +1,4 @@
-package com.alexvoz.cvirus.util
+package com.alexvoz.cvirus.presentation.main
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData

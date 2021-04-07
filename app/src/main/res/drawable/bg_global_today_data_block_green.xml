@@ -3,6 +3,6 @@
     <solid android:color="@color/white" />
     <stroke
         android:width="@dimen/size_border_global_today_data"
-        android:color="@color/green" />
+        android:color="@color/color_green_recovered" />
     <corners android:radius="@dimen/corner_border_global_today_data" />
 </shape>

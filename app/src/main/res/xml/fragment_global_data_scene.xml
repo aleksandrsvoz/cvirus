@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@layout/fragment_global_data"
+        motion:duration="12000">
+
+        <KeyFrameSet>
+            <!--Today data loading-->
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="1"
+                motion:motionTarget="@id/llGlobalRecoveredTodayLoading" />
+
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="1"
+                motion:motionTarget="@id/llGlobalDiedTodayLoading" />
+
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="1"
+                motion:motionTarget="@id/llGlobalTodayCasesLoading" />
+            <!--Today data loading End-->
+
+
+            <!--Cases-->
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="10"
+                motion:motionTarget="@id/vGlobalDataCasesCircle" />
+
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="10"
+                motion:motionTarget="@id/tvGlobalDataCasesLabel" />
+
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="10"
+                motion:motionTarget="@id/tvGlobalDataCases" />
+
+            <KeyAttribute
+                android:scaleX="0"
+                android:scaleY="0"
+                motion:framePosition="10"
+                motion:motionTarget="@id/tvGlobalDataCases" />
+
+            <KeyAttribute
+                android:alpha="1"
+                motion:framePosition="30"
+                motion:motionTarget="@id/vGlobalDataCasesCircle" />
+
+            <KeyAttribute
+                android:alpha="1"
+                motion:framePosition="30"
+                motion:motionTarget="@id/tvGlobalDataCasesLabel" />
+
+            <KeyAttribute
+                android:alpha="1"
+                motion:framePosition="30"
+                motion:motionTarget="@id/tvGlobalDataCases" />
+
+            <KeyAttribute
+                android:scaleX="1"
+                android:scaleY="1"
+                motion:framePosition="30"
+                motion:motionTarget="@id/tvGlobalDataCases" />
+            <!--Cases End-->
+
+
+            <!--Recovered-->
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="50"
+                motion:motionTarget="@id/vGlobalDataRecoveredCircle" />
+
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="50"
+                motion:motionTarget="@id/tvGlobalDataRecoveredLabel" />
+
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="50"
+                motion:motionTarget="@id/tvGlobalDataRecovered" />
+
+            <KeyAttribute
+                android:scaleX="0"
+                android:scaleY="0"
+                motion:framePosition="50"
+                motion:motionTarget="@id/tvGlobalDataRecovered" />
+
+            <KeyAttribute
+                android:alpha="1"
+                motion:framePosition="70"
+                motion:motionTarget="@id/vGlobalDataRecoveredCircle" />
+
+            <KeyAttribute
+                android:alpha="1"
+                motion:framePosition="70"
+                motion:motionTarget="@id/tvGlobalDataRecoveredLabel" />
+
+            <KeyAttribute
+                android:alpha="1"
+                motion:framePosition="70"
+                motion:motionTarget="@id/tvGlobalDataRecovered" />
+
+            <KeyAttribute
+                android:scaleX="1"
+                android:scaleY="1"
+                motion:framePosition="70"
+                motion:motionTarget="@id/tvGlobalDataRecovered" />
+            <!--Recovered End-->
+
+
+            <!--Deaths-->
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="83"
+                motion:motionTarget="@id/vGlobalDataDeathsCircle" />
+
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="83"
+                motion:motionTarget="@id/tvGlobalDataDeathsLabel" />
+
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="83"
+                motion:motionTarget="@id/tvGlobalDataDeaths" />
+
+            <KeyAttribute
+                android:scaleX="0"
+                android:scaleY="0"
+                motion:framePosition="83"
+                motion:motionTarget="@id/tvGlobalDataDeaths" />
+
+            <KeyAttribute
+                android:alpha="1"
+                motion:framePosition="90"
+                motion:motionTarget="@id/vGlobalDataDeathsCircle" />
+
+            <KeyAttribute
+                android:alpha="1"
+                motion:framePosition="90"
+                motion:motionTarget="@id/tvGlobalDataDeathsLabel" />
+
+            <KeyAttribute
+                android:alpha="1"
+                motion:framePosition="90"
+                motion:motionTarget="@id/tvGlobalDataDeaths" />
+
+            <KeyAttribute
+                android:scaleX="1"
+                android:scaleY="1"
+                motion:framePosition="90"
+                motion:motionTarget="@id/tvGlobalDataDeaths" />
+            <!--Deaths End-->
+        </KeyFrameSet>
+    </Transition>
+
+
+    <ConstraintSet android:id="@+id/end">
+
+        <!--Today data loading-->
+        <Constraint android:id="@+id/llGlobalRecoveredTodayLoading">
+            <PropertySet android:visibility="invisible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/llGlobalDiedTodayLoading">
+            <PropertySet android:visibility="invisible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/llGlobalTodayCasesLoading">
+            <PropertySet android:visibility="invisible" />
+        </Constraint>
+        <!--Today data loading End-->
+
+
+        <!--Cases-->
+        <Constraint android:id="@+id/vGlobalDataCasesCircle">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/tvGlobalDataCasesLabel">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/tvGlobalDataCases">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+        <!--Cases End-->
+
+        <!--Recovered-->
+        <Constraint android:id="@+id/vGlobalDataRecoveredCircle">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/tvGlobalDataRecoveredLabel">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/tvGlobalDataRecovered">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+        <!--Recovered End-->
+
+        <!--Deaths-->
+        <Constraint android:id="@+id/vGlobalDataDeathsCircle">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/tvGlobalDataDeathsLabel">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/tvGlobalDataDeaths">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+        <!--Deaths End-->
+    </ConstraintSet>
+
+</MotionScene>
