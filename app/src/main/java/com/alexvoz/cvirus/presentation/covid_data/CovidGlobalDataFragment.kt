@@ -18,8 +18,9 @@ import com.hookedonplay.decoviewlib.charts.DecoDrawEffect
 import com.hookedonplay.decoviewlib.charts.SeriesItem
 import com.hookedonplay.decoviewlib.charts.SeriesItem.SeriesItemListener
 import com.hookedonplay.decoviewlib.events.DecoEvent
+import kotlinx.android.synthetic.main.block_today_data.view.*
 import kotlinx.android.synthetic.main.fragment_global_data.*
-import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.*
 
 
 @InternalCoroutinesApi
@@ -53,9 +54,9 @@ class CovidGlobalDataFragment : Fragment() {
     }
 
     private fun setData(global: Global) {
-        tvGlobalTodayCases.text = global.newConfirmed.getNumberWithSpaces()
-        tvGlobalRecoveredToday.text = global.newRecovered.getNumberWithSpaces()
-        tvGlobalDiedToday.text = global.newDeaths.getNumberWithSpaces()
+        iTodayDataBlock.tvNewCases.text = global.newConfirmed.getNumberWithSpaces()
+        iTodayDataBlock.tvRecovered.text = global.newRecovered.getNumberWithSpaces()
+        iTodayDataBlock.tvDeaths.text = global.newDeaths.getNumberWithSpaces()
 
         initCircleTotalData((global.totalConfirmed * 1.40).toFloat())
 

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="item_country_corners_radius">18dp</dimen>
-    <dimen name="corner_search">8dp</dimen>
+    <dimen name="corner_item_country_radius">18dp</dimen>
+    <dimen name="corner_search">12dp</dimen>
+    <dimen name="corner_white_window">20dp</dimen>
+    <dimen name="corner_border_global_today_data">20dp</dimen>
+
+    <dimen name="elevation_medium">3dp</dimen>
 
     <dimen name="margin_country_hor">20dp</dimen>
-    <dimen name="corner_white_window">20dp</dimen>
     <dimen name="size_border_global_today_data">3dp</dimen>
-    <dimen name="corner_border_global_today_data">20dp</dimen>
 </resources>

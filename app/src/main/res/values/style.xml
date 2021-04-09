@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="CLSection">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">10dp</item>
-        <item name="android:layout_marginStart">@dimen/margin_country_hor</item>
-        <item name="android:layout_marginEnd">@dimen/margin_country_hor</item>
-    </style>
 
-    <style name="SectionLabel" parent="TextAppearance.MaterialComponents.Button">
+
+    <style name="TextViewLabel.SectionLabel">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/bg_round_white</item>
@@ -17,8 +11,8 @@
         <item name="android:paddingEnd">15dp</item>
         <item name="android:paddingTop">7dp</item>
         <item name="android:paddingBottom">30dp</item>
-        <item name="android:textColor">@color/dark_gray</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/text_black</item>
     </style>
 
     <style name="SectionSubLabel">
@@ -56,27 +50,29 @@
     </style>
 
     <style name="TextViewLabel.GlobalDataTodayCardsLabel">
-        <item name="android:layout_marginTop">24dp</item>
         <item name="android:textSize">19sp</item>
+        <item name="android:translationZ">@dimen/elevation_medium</item>
     </style>
 
-    <style name="TextViewNumber.GlobalDataTodayCardsContent">
-        <item name="android:layout_width">match_parent</item>
+    <style name="TextViewNumber.TodayDataBoxContent">
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:textSize">30sp</item>
+        <item name="android:translationZ">@dimen/elevation_medium</item>
     </style>
 
-    <style name="GlobalDataTodayBox">
+    <style name="TodayDataBox">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">110dp</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:translationZ">3dp</item>
+        <item name="android:translationZ">@dimen/elevation_medium</item>
     </style>
 
-    <style name="GlobalTodayBoxLoadingLottie">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
+    <style name="TodayBoxLoadingLottie">
+        <item name="android:elevation">@dimen/elevation_medium</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
         <item name="android:layout_marginTop">14dp</item>
         <item name="android:layout_marginEnd">14dp</item>
         <item name="android:layout_marginStart">14dp</item>

@@ -6,8 +6,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.alexvoz.cvirus.R
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -32,21 +32,9 @@ class MainActivity : AppCompatActivity() {
             no_wifi.visibility = if (it) View.INVISIBLE else View.VISIBLE
         }
 
-        bnvMainTabs.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
-
-            if (item.title.toString() != navController.currentDestination?.label) {
-                navController.navigate(
-                    when (item.itemId) {
-                        R.id.menuGlobal -> R.id.action_countriesListFragment_to_globalDataFragment
-
-                        R.id.menuCountries -> R.id.action_globalDataFragment_to_countriesListFragment
-
-                        else -> R.id.action_globalDataFragment_to_countriesListFragment
-                    }
-                )
-            }
-            return@OnNavigationItemSelectedListener true
-        })
-
+        bnvMainTabs.setOnNavigationItemSelectedListener { item ->
+            NavigationUI.onNavDestinationSelected(item, navController)
+            true
+        }
     }
 }

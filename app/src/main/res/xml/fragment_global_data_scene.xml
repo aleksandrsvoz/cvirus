@@ -8,23 +8,6 @@
         motion:duration="12000">
 
         <KeyFrameSet>
-            <!--Today data loading-->
-            <KeyAttribute
-                android:alpha="0"
-                motion:framePosition="1"
-                motion:motionTarget="@id/llGlobalRecoveredTodayLoading" />
-
-            <KeyAttribute
-                android:alpha="0"
-                motion:framePosition="1"
-                motion:motionTarget="@id/llGlobalDiedTodayLoading" />
-
-            <KeyAttribute
-                android:alpha="0"
-                motion:framePosition="1"
-                motion:motionTarget="@id/llGlobalTodayCasesLoading" />
-            <!--Today data loading End-->
-
 
             <!--Cases-->
             <KeyAttribute
@@ -164,22 +147,6 @@
 
 
     <ConstraintSet android:id="@+id/end">
-
-        <!--Today data loading-->
-        <Constraint android:id="@+id/llGlobalRecoveredTodayLoading">
-            <PropertySet android:visibility="invisible" />
-        </Constraint>
-
-        <Constraint android:id="@+id/llGlobalDiedTodayLoading">
-            <PropertySet android:visibility="invisible" />
-        </Constraint>
-
-        <Constraint android:id="@+id/llGlobalTodayCasesLoading">
-            <PropertySet android:visibility="invisible" />
-        </Constraint>
-        <!--Today data loading End-->
-
-
         <!--Cases-->
         <Constraint android:id="@+id/vGlobalDataCasesCircle">
             <PropertySet android:visibility="visible" />

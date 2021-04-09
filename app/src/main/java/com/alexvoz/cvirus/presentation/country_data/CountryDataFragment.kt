@@ -1,6 +1,5 @@
 package com.alexvoz.cvirus.presentation.country_data
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.alexvoz.cvirus.R
 import com.alexvoz.cvirus.data.covid_data.network.Country
+import com.alexvoz.cvirus.util.getNumberWithSpaces
+import kotlinx.android.synthetic.main.block_today_data.view.*
 import kotlinx.android.synthetic.main.fragment_country_data.*
 import kotlinx.coroutines.*
 
@@ -18,7 +19,6 @@ const val COUNTRY_NAME = "country_name"
 class CountryDataFragment : Fragment() {
 
     private val countryDataViewModel: CountryDataViewModel by activityViewModels()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,15 +49,9 @@ class CountryDataFragment : Fragment() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
     private fun setData(country: Country) {
-        tvCountryNewCases.text = country.newConfirmed.toString()
-        tvCountryCasesTotal.text = "(Total: ${country.totalConfirmed})"
-
-        tvCountryNewDeaths.text = country.newDeaths.toString()
-        tvCountryDeathsTotal.text = "(Total: ${country.totalDeaths})"
-
-        tvCountryNewRecovered.text = country.newRecovered.toString()
-        tvCountryRecoveredTotal.text = "(Total: ${country.totalRecovered})"
+        iTodayDataBlock.tvNewCases.text = country.newConfirmed.getNumberWithSpaces()
+        iTodayDataBlock.tvRecovered.text = country.newRecovered.getNumberWithSpaces()
+        iTodayDataBlock.tvDeaths.text = country.newDeaths.getNumberWithSpaces()
     }
 }

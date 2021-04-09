@@ -2,7 +2,7 @@
     <string name="app_name">CaronaVirusStats</string>
     <string name="global">Global</string>
     <string name="countries">Countries</string>
-    <string name="new_cases">Today Cases</string>
+    <string name="new_cases">New Cases</string>
     <string name="new_deaths">New Deaths:</string>
     <string name="new_recovered">New Recovered:</string>
     <string name="search_country">Search Country</string>
@@ -16,8 +16,10 @@
     <string name="cases">Cases</string>
     <string name="recovered_today">Recovered Today</string>
     <string name="died_today">Died Today</string>
-    <string name="recovered">Recovered</string>
-    <string name="deaths">Deaths</string>
     <string name="total_data">Total Data</string>
     <string name="country_name">Country Name</string>
+    <string name="today_data">Today Data</string>
+    <string name="deaths">Deaths</string>
+    <string name="recovered">Recovered</string>
+    <string name="space" />
 </resources>

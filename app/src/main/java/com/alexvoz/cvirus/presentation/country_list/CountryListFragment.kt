@@ -135,7 +135,7 @@ class CountryListFragment : Fragment() {
 
                     val bundle = bundleOf(COUNTRY_NAME to it.country)
                     findNavController().navigate(
-                        R.id.action_countriesListFragment_to_countryDataFragment,
+                        R.id.action_countriesList_to_countryData,
                         bundle
                     )
 

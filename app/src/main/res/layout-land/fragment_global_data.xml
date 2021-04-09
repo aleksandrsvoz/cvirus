@@ -152,150 +152,15 @@
         app:layout_constraintTop_toBottomOf="@+id/tvGlobalDataDeathsLabel" />
     <!--    Deaths end-->
 
-    <!--    Today Recovered-->
-    <LinearLayout
-        android:id="@+id/llGlobalRecoveredToday"
-        style="@style/GlobalDataTodayBox"
-
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/bg_global_today_data_block_green"
+    <include
+        android:id="@+id/iTodayDataBlock"
+        layout="@layout/block_today_data"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/llGlobalDiedToday"
-        app:layout_constraintStart_toEndOf="@+id/guideline_center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15">
-
-        <TextView
-            android:id="@+id/tvGlobalRecoveredTodayLabel"
-            style="@style/TextViewLabel.GlobalDataTodayCardsLabel"
-            android:text="@string/recovered_today" />
-
-        <TextView
-            android:id="@+id/tvGlobalRecoveredToday"
-            style="@style/TextViewNumber.GlobalDataTodayCardsContent"
-
-            app:autoSizeMaxTextSize="30sp"
-            app:autoSizeMinTextSize="20sp"
-            app:autoSizeStepGranularity="1sp"
-            app:autoSizeTextType="uniform" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llGlobalRecoveredTodayLoading"
-        style="@style/GlobalDataTodayBox"
-        android:background="@drawable/bg_global_today_data_block_green"
-
-        app:layout_constraintBottom_toBottomOf="@+id/llGlobalRecoveredToday"
-        app:layout_constraintEnd_toEndOf="@+id/llGlobalRecoveredToday"
-        app:layout_constraintStart_toStartOf="@+id/llGlobalRecoveredToday"
-        app:layout_constraintTop_toTopOf="@+id/llGlobalRecoveredToday">
-
-        <com.airbnb.lottie.LottieAnimationView
-            style="@style/GlobalTodayBoxLoadingLottie"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="virus_loading_green.json"
-            app:lottie_loop="true" />
-    </LinearLayout>
-    <!--    Today Recovered End-->
-
-
-    <!--    Today Died-->
-    <LinearLayout
-        android:id="@+id/llGlobalDiedToday"
-        style="@style/GlobalDataTodayBox"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/bg_global_today_data_block_red"
-
-        app:layout_constraintBottom_toBottomOf="@+id/llGlobalRecoveredToday"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/llGlobalRecoveredToday"
-        app:layout_constraintTop_toTopOf="@+id/llGlobalRecoveredToday">
-
-        <TextView
-            android:id="@+id/tvGlobalDiedTodayLabel"
-            style="@style/TextViewLabel.GlobalDataTodayCardsLabel"
-            android:text="@string/died_today" />
-
-        <TextView
-            android:id="@+id/tvGlobalDiedToday"
-            style="@style/TextViewNumber.GlobalDataTodayCardsContent"
-
-            app:autoSizeMaxTextSize="30sp"
-            app:autoSizeMinTextSize="20sp"
-            app:autoSizeStepGranularity="1sp"
-            app:autoSizeTextType="uniform" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llGlobalDiedTodayLoading"
-        style="@style/GlobalDataTodayBox"
-        android:background="@drawable/bg_global_today_data_block_red"
-
-        app:layout_constraintBottom_toBottomOf="@+id/llGlobalRecoveredToday"
-        app:layout_constraintEnd_toEndOf="@+id/llGlobalDiedToday"
-        app:layout_constraintStart_toStartOf="@+id/llGlobalDiedToday"
-        app:layout_constraintTop_toTopOf="@+id/llGlobalRecoveredToday">
-
-        <com.airbnb.lottie.LottieAnimationView
-            style="@style/GlobalTodayBoxLoadingLottie"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="virus_loading_red.json"
-            app:lottie_loop="true" />
-    </LinearLayout>
-    <!--    Today Died End-->
-
-
-    <!--    Today Cases-->
-    <LinearLayout
-        android:id="@+id/llGlobalTodayCases"
-        style="@style/GlobalDataTodayBox"
-
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="60dp"
-        android:background="@drawable/bg_global_today_data_block_orange"
-
-        app:layout_constraintEnd_toEndOf="@+id/llGlobalDiedToday"
-        app:layout_constraintStart_toStartOf="@+id/llGlobalRecoveredToday"
-        app:layout_constraintTop_toBottomOf="@+id/llGlobalRecoveredToday">
-
-        <TextView
-            android:id="@+id/tvGlobalTodayCasesLabel"
-            style="@style/TextViewLabel.GlobalDataTodayCardsLabel"
-
-            android:layout_marginTop="18dp"
-            android:text="@string/new_cases"
-            android:textSize="22sp" />
-
-        <TextView
-            android:id="@+id/tvGlobalTodayCases"
-            style="@style/TextViewNumber.GlobalDataTodayCardsContent"
-
-            app:autoSizeMaxTextSize="30sp"
-            app:autoSizeMinTextSize="20sp"
-            app:autoSizeStepGranularity="1sp"
-            app:autoSizeTextType="uniform" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llGlobalTodayCasesLoading"
-        style="@style/GlobalDataTodayBox"
-        android:background="@drawable/bg_global_today_data_block_orange"
-
-        app:layout_constraintBottom_toBottomOf="@+id/llGlobalTodayCases"
-        app:layout_constraintEnd_toEndOf="@+id/llGlobalTodayCases"
-        app:layout_constraintStart_toStartOf="@+id/llGlobalTodayCases"
-        app:layout_constraintTop_toTopOf="@+id/llGlobalTodayCases">
-
-        <com.airbnb.lottie.LottieAnimationView
-            style="@style/GlobalTodayBoxLoadingLottie"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="virus_loading_orange.json"
-            app:lottie_loop="true" />
-    </LinearLayout>
-    <!--    Today Cases End-->
+        app:layout_constraintStart_toEndOf="@+id/dvGlobalDataCircleTotalData"
+        app:layout_constraintTop_toBottomOf="@+id/dvGlobalDataCircleTotalData"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_center"
