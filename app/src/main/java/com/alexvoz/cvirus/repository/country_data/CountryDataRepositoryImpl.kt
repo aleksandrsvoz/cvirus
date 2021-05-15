@@ -35,8 +35,6 @@ class CountryDataRepositoryImpl(
         crossinline saveInCache: suspend (ResponseType) -> Unit
     ) = flow {
 
-        emit(Resource.Loading(fromCache().first()))
-
         val flow = run {
             try {
                 saveInCache(requestCall())

@@ -11,7 +11,7 @@ import com.alexvoz.cvirus.data.covid_data.network.Country
 import com.alexvoz.cvirus.util.getNumberWithSpaces
 import kotlinx.android.synthetic.main.block_today_data.view.*
 import kotlinx.android.synthetic.main.fragment_country_data.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.InternalCoroutinesApi
 
 const val COUNTRY_NAME = "country_name"
 
@@ -30,23 +30,26 @@ class CountryDataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val countryName = arguments?.getString(COUNTRY_NAME)
+        initObservers()
+        initData()
+    }
 
+    private fun initData() {
+        arguments?.getString(COUNTRY_NAME)?.let {
+            countryDataViewModel.initCountry(it)
+        }
+    }
+
+    private fun initObservers() {
         countryDataViewModel.countryData.observe(viewLifecycleOwner, {
+            setData(it)
+
+            countryDataViewModel.getCountryData(it)
+        })
+
+        countryDataViewModel.countryHistoryData.observe(viewLifecycleOwner, {
             lcCountryChart.setData(it)
         })
-        CoroutineScope(Job() + Dispatchers.IO).launch {
-            countryName?.let {
-
-                val country = countryDataViewModel.getCountry(it)
-
-                countryDataViewModel.getCountryData(country)
-
-                withContext(Dispatchers.Main) {
-                    setData(country)
-                }
-            }
-        }
     }
 
     private fun setData(country: Country) {

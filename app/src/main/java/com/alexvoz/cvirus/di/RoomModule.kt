@@ -23,9 +23,7 @@ object RoomModule {
             appContext,
             AppDatabase::class.java,
             AppDatabase.DATABASE_NAME
-        )
-            .fallbackToDestructiveMigration()
-            .build()
+        ).fallbackToDestructiveMigration().build()
     }
 
     @Singleton

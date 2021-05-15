@@ -86,7 +86,7 @@ class CountryListFragment : Fragment() {
 
                 R.id.menuSortByNewCasesDes -> {
                     sharedViewModel.covidData.value?.countries?.let {
-                        yourAdapterName.submitList(it.sortedByDescending { country -> country.newConfirmed })
+                        yourAdapterName.submitList(it.sortedByDescending { country -> country.newConfirmed})
                     }
                     true
                 }

@@ -3,7 +3,7 @@ package com.alexvoz.cvirus.util
 import java.text.DecimalFormat
 
 object UiUtils {
-
+fun a(){}
 }
 
 fun Float.getNumberWithSpaces(): String {
