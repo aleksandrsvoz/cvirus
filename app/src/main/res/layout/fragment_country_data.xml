@@ -20,8 +20,8 @@
         <TextView
             android:id="@+id/tvRouteResultElevationLabel"
             style="@style/TextViewLabel.SectionLabel"
-            android:text="@string/total_data"
 
+            android:text="@string/total_data"
             app:layout_constraintBottom_toTopOf="@+id/llRouteResultChart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

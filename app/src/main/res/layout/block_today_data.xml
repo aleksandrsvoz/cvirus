@@ -1,142 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tvTodayDataLabel"
         style="@style/TextViewLabel"
 
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="20dp"
         android:text="@string/today_data"
         android:textColor="@color/text_black"
-        android:textSize="30sp"
+        android:textSize="30sp" />
 
-        app:layout_constraintBottom_toTopOf="@+id/llNewCases"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <!--    Today Recovered-->
-    <View
-        android:id="@+id/vRecovered"
-        style="@style/TodayDataBox"
-
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-
-        android:background="@drawable/bg_global_today_data_block_green"
-        app:layout_constraintBottom_toTopOf="@+id/llNewCases"
-        app:layout_constraintEnd_toStartOf="@id/vDeaths"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTodayDataLabel" />
-
-    <TextView
-        android:id="@+id/tvRecoveredLabel"
-        style="@style/TextViewLabel.GlobalDataTodayCardsLabel"
-        android:text="@string/recovered"
-
-        app:layout_constraintBottom_toTopOf="@+id/tvRecovered"
-        app:layout_constraintEnd_toEndOf="@+id/vRecovered"
-        app:layout_constraintStart_toStartOf="@+id/vRecovered"
-        app:layout_constraintTop_toTopOf="@+id/vRecovered" />
-
-    <TextView
-        android:id="@+id/tvRecovered"
-        style="@style/TextViewNumber.TodayDataBoxContent"
-
-        app:autoSizeMaxTextSize="30sp"
-        app:autoSizeMinTextSize="20sp"
-        app:autoSizeStepGranularity="1sp"
-        app:autoSizeTextType="uniform"
-
-        app:layout_constraintBottom_toBottomOf="@+id/vRecovered"
-        app:layout_constraintEnd_toEndOf="@+id/vRecovered"
-        app:layout_constraintStart_toStartOf="@+id/vRecovered"
-        app:layout_constraintTop_toBottomOf="@+id/tvRecoveredLabel" />
-    <!--    Today Recovered End-->
-
-    <!--    Today Died-->
-    <View
-        android:id="@+id/vDeaths"
-        style="@style/TodayDataBox"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/bg_global_today_data_block_red"
-
-        app:layout_constraintBottom_toBottomOf="@+id/vRecovered"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/vRecovered"
-        app:layout_constraintTop_toTopOf="@+id/vRecovered" />
-
-    <TextView
-        android:id="@+id/tvDeathsLabel"
-        style="@style/TextViewLabel.GlobalDataTodayCardsLabel"
-        android:text="@string/deaths"
-
-        app:layout_constraintBottom_toTopOf="@+id/tvDeaths"
-        app:layout_constraintEnd_toEndOf="@+id/vDeaths"
-        app:layout_constraintStart_toStartOf="@+id/vDeaths"
-        app:layout_constraintTop_toTopOf="@+id/vDeaths" />
-
-    <TextView
-        android:id="@+id/tvDeaths"
-        style="@style/TextViewNumber.TodayDataBoxContent"
-
-        app:autoSizeMaxTextSize="30sp"
-        app:autoSizeMinTextSize="20sp"
-        app:autoSizeStepGranularity="1sp"
-        app:autoSizeTextType="uniform"
-
-        app:layout_constraintBottom_toBottomOf="@+id/vDeaths"
-        app:layout_constraintEnd_toEndOf="@+id/vDeaths"
-        app:layout_constraintStart_toStartOf="@+id/vDeaths"
-        app:layout_constraintTop_toBottomOf="@+id/tvDeathsLabel" />
-    <!--    Today Died End-->
-
-
-    <!--    Today Cases-->
-    <View
-        android:id="@+id/llNewCases"
-        style="@style/TodayDataBox"
-
-        android:layout_marginStart="60dp"
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="30dp"
+        android:layout_gravity="center"
 
-        android:background="@drawable/bg_global_today_data_block_orange"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/vDeaths"
-        app:layout_constraintStart_toStartOf="@+id/vRecovered"
-        app:layout_constraintTop_toBottomOf="@+id/vRecovered" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTodayDataLabel">
 
-    <TextView
-        android:id="@+id/tvNewCasesLabel"
-        style="@style/TextViewLabel.GlobalDataTodayCardsLabel"
-        android:text="@string/new_cases"
-        android:textSize="22sp"
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        app:layout_constraintBottom_toTopOf="@+id/tvNewCases"
-        app:layout_constraintEnd_toEndOf="@+id/llNewCases"
-        app:layout_constraintStart_toStartOf="@+id/llNewCases"
-        app:layout_constraintTop_toTopOf="@+id/llNewCases" />
+            <!--    Today Recovered-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvRecovered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                app:cardCornerRadius="@dimen/corner_border_global_today_data">
 
-    <TextView
-        android:id="@+id/tvNewCases"
-        style="@style/TextViewNumber.TodayDataBoxContent"
+                <View
+                    android:id="@+id/vRecovered"
+                    style="@style/TodayDataBox"
+                    android:background="@drawable/bg_global_today_data_block_green" />
 
-        app:autoSizeMaxTextSize="30sp"
-        app:autoSizeMinTextSize="20sp"
-        app:autoSizeStepGranularity="1sp"
-        app:autoSizeTextType="uniform"
+                <TextView
+                    android:id="@+id/tvRecoveredLabel"
+                    style="@style/TextViewLabel.GlobalDataTodayCardsLabel"
+                    android:text="@string/recovered" />
 
-        app:layout_constraintBottom_toBottomOf="@+id/llNewCases"
-        app:layout_constraintEnd_toEndOf="@+id/llNewCases"
-        app:layout_constraintStart_toStartOf="@+id/llNewCases"
-        app:layout_constraintTop_toBottomOf="@+id/tvNewCasesLabel" />
-    <!--    Today Cases End-->
+                <TextView
+                    android:id="@+id/tvRecovered"
+                    style="@style/TextViewNumber.TodayDataBoxContent"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    app:autoSizeMaxTextSize="30sp"
+                    app:autoSizeMinTextSize="20sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="uniform" />
+
+            </androidx.cardview.widget.CardView>
+            <!--    Today Recovered End-->
+
+
+            <!--    Today Died-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvDeaths"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/corner_border_global_today_data">
+
+                <View
+                    android:id="@+id/vDeaths"
+                    style="@style/TodayDataBox"
+                    android:background="@drawable/bg_global_today_data_block_red" />
+
+                <TextView
+                    android:id="@+id/tvDeathsLabel"
+                    style="@style/TextViewLabel.GlobalDataTodayCardsLabel"
+                    android:text="@string/deaths" />
+
+                <TextView
+                    android:id="@+id/tvDeaths"
+                    style="@style/TextViewNumber.TodayDataBoxContent"
+
+                    app:autoSizeMaxTextSize="30sp"
+                    app:autoSizeMinTextSize="20sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="uniform" />
+
+            </androidx.cardview.widget.CardView>
+            <!--    Today Died End-->
+
+
+            <!--    Today Cases-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvNewCases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                app:cardCornerRadius="@dimen/corner_border_global_today_data">
+
+                <View
+                    android:id="@+id/vNewCases"
+                    style="@style/TodayDataBox"
+                    android:background="@drawable/bg_global_today_data_block_orange" />
+
+                <TextView
+                    android:id="@+id/tvNewCasesLabel"
+                    style="@style/TextViewLabel.GlobalDataTodayCardsLabel"
+                    android:text="@string/new_cases" />
+
+                <TextView
+                    android:id="@+id/tvNewCases"
+                    style="@style/TextViewNumber.TodayDataBoxContent"
+
+                    app:autoSizeMaxTextSize="30sp"
+                    app:autoSizeMinTextSize="20sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="uniform" />
+
+            </androidx.cardview.widget.CardView>
+            <!--    Today Cases End-->
+
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

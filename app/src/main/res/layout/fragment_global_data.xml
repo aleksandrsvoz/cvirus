@@ -19,6 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--    Cases-->
     <com.hookedonplay.decoviewlib.DecoView
         android:id="@+id/dvGlobalDataCircleTotalData"
         android:layout_width="0dp"
@@ -32,7 +33,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.2" />
 
-    <!--    Cases-->
     <View
         android:id="@+id/vGlobalDataCasesCircle"
         style="@style/GlobalDataCircle"
@@ -170,7 +170,7 @@
     <LinearLayout
        android:id="@+id/llGlobalDataTodayBlock"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

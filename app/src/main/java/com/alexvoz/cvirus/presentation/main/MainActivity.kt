@@ -1,5 +1,7 @@
 package com.alexvoz.cvirus.presentation.main
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -15,6 +17,19 @@ import kotlinx.coroutines.InternalCoroutinesApi
 @AndroidEntryPoint
 @InternalCoroutinesApi
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        fun startActivity(activity: Activity) {
+            val intent = Intent(activity, MainActivity::class.java)
+
+            intent.flags =
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_NO_ANIMATION
+
+            activity.startActivity(intent)
+            activity.finish()
+        }
+    }
+
     lateinit var navController: NavController
     private val viewModel: MainViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by viewModels()

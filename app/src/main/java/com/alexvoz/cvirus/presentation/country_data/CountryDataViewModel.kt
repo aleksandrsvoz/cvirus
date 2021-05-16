@@ -11,7 +11,7 @@ import com.alexvoz.cvirus.repository.country_data.CountryDataRepositoryImpl
 import com.alexvoz.cvirus.repository.covid_data.CovidDataRepositoryImpl
 import com.alexvoz.template.util.SingleLiveEvent
 import kotlinx.coroutines.InternalCoroutinesApi
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -34,7 +34,9 @@ constructor(
 
     fun initCountry(countryName: String) {
         viewModelScope.launch {
-            _countryData.value = covidDataRepositoryImpl.getCountryByName(countryName).first()
+            covidDataRepositoryImpl.getCountryByName(countryName).firstOrNull()?.let {
+                _countryData.value = it
+            }
         }
     }
 

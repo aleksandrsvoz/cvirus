@@ -1,0 +1,12 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/colorPrimaryLight" />
+        </shape>
+    </item>
+    <item>
+        <inset android:drawable="@drawable/ic_cvirus_launch_screen"/>
+    </item>
+</layer-list>

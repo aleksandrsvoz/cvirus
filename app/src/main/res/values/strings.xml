@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CaronaVirusStats</string>
+    <string name="app_name">Cvirus</string>
     <string name="global">Global</string>
     <string name="countries">Countries</string>
     <string name="new_cases">New Cases</string>
